@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.jetbrainsKotlinAndroid)
     id("kotlin-android")
     id("kotlin-kapt")
+    id("com.google.devtools.ksp")
+
 
 }
 
@@ -55,7 +57,7 @@ android {
 
 
         //View Model
-        val arch_version = "2.2.0"
+
         implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
         // LiveData
@@ -63,10 +65,10 @@ android {
 
         //Retrofit
         implementation(libs.retrofit)
-
-        implementation (libs.gson)
-        implementation (libs.converter.gson)
-
+        implementation (libs.retrofit.v220)
+        /*implementation (libs.gson)*/
+        /*implementation (libs.converter.gson)*/
+        implementation (libs.converter.gson.v220)
         // Room
         /*val room_version = "2.6.1"
         implementation(libs.androidx.room.runtime)
@@ -76,10 +78,11 @@ android {
 
 
         //Room
-        val room_version = "2.6.0"
+
         implementation(libs.androidx.room.runtime)
         implementation(libs.androidx.room.ktx)
-        kapt(libs.androidx.room.compiler)
+        /*ksp(libs.androidx.room.compiler)*/
+        /*ksp(libs.androidx.room.compiler.v250)*/
 
     // Fragment KTX
     // implementation("androidx.fragment:fragment-ktx:1.5.4")
